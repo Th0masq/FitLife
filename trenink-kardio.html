@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trénink: Kardio a Spalování - FitLife</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+       <div class="container header-container">
+            <a href="index.html" class="logo"> <i class="fas fa-heartbeat"></i> FitLife</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Domů</a></li>
+                    <li><a href="bmi.html"><i class="fas fa-calculator"></i> BMI</a></li>
+                    <li><a href="kalkulacka-trenink.html"><i class="fas fa-cogs"></i> Nastav si svůj trénink</a></li>
+                    <li><a href="jidelnicky.html"><i class="fas fa-utensils"></i> Jídelníčky</a></li>
+                    <li><a href="treninky.html"><i class="fas fa-dumbbell"></i> Tréninky</a></li>
+                </ul>
+            </nav>
+             <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+         <section class="content-section detail-section page-section bg-light">
+            <div class="container">
+                 <a href="treninky.html" class="btn btn-back"><i class="fas fa-arrow-left"></i> Zpět na přehled tréninků</a>
+                <h2 class="section-title"><i class="fas fa-heart-pulse"></i> Příklad Tréninku: Kardio a Spalování</h2>
+                <p class="section-intro">Kombinujte různé typy kardia pro optimální výsledky a prevenci nudy. Frekvence 3-5x týdně.</p>
+                 <div class="training-structure">
+                    <h4>Týdenní rozvrh (Příklad):</h4>
+                    <ul>
+                        <li><strong>Pondělí: Středně intenzivní kardio (LISS - Low-Intensity Steady State)</strong><br><em>30-45 minut běhu, rychlé chůze do kopce, jízdy na kole nebo elipticalu v tempu, kde můžete ještě mluvit, ale zadýcháváte se.</em></li>
+                        <li><strong>Úterý: Volno nebo lehký silový trénink</strong></li>
+                        <li><strong>Středa: Vysoce intenzivní intervalový trénink (HIIT)</strong><br><em>Příklad: Na kole/běžeckém pásu: 5 min zahřátí, pak 8x (30 sekund sprint / 90 sekund velmi pomalá jízda/chůze), 5 min zklidnění. Celkem cca 25-30 minut.</em></li>
+                        <li><strong>Čtvrtek: Volno nebo lehký silový trénink</strong></li>
+                         <li><strong>Pátek: Středně intenzivní kardio (LISS)</strong><br><em>Jiná aktivita než v pondělí, např. plavání, veslování, 30-45 minut.</em></li>
+                         <li><strong>Víkend: Aktivní odpočinek</strong><br><em>Např. delší procházka, výlet, jóga, nebo jeden HIIT/LISS trénink, pokud se cítíte dobře.</em></li>
+                    </ul>
+                    <p><strong>HIIT Principy:</strong> Krátké intervaly maximální zátěže střídané s delšími intervaly odpočinku nebo very nízké aktivity. Je velmi náročný, neprovádějte ho více než 2-3x týdně a ne pokud jste úplný začátečník.</p>
+                </div>
+                 <p class="disclaimer">Intenzitu a délku přizpůsobte své kondici. Poslouchejte své tělo a při zdravotních potížích konzultujte lékaře.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+       <div class="container text-center">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> FitLife. Všechna práva vyhrazena.</p>
+            <p class="small-text">Obsah této stránky je pouze informativní a nenahrazuje odborné lékařské, nutriční ani trenérské poradenství.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

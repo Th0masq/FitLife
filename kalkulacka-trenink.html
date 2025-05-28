@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nastav si svůj trénink - FitLife</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+         <div class="container header-container">
+            <a href="index.html" class="logo"> <i class="fas fa-heartbeat"></i> FitLife</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Domů</a></li>
+                    <li><a href="bmi.html"><i class="fas fa-calculator"></i> BMI</a></li>
+                    <li><a href="kalkulacka-trenink.html"><i class="fas fa-cogs"></i> Nastav si svůj trénink</a></li>
+                    <li><a href="jidelnicky.html"><i class="fas fa-utensils"></i> Jídelníčky</a></li>
+                    <li><a href="treninky.html"><i class="fas fa-dumbbell"></i> Tréninky</a></li>
+                </ul>
+            </nav>
+             <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="training-calorie-calculator" class="content-section page-section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-cogs"></i> Nastav si svůj trénink</h2>
+                <p class="section-intro">Zadejte své údaje a zjistěte doporučený kalorický příjem a základní tréninkové nasměrování pro dosažení vašich cílů.</p>
+
+                <div class="training-calculator-wrapper card">
+                    <div class="input-section">
+                        <div class="form-group">
+                           <label for="age"><i class="fas fa-birthday-cake"></i> Věk (roky):</label>
+                           <input type="number" id="age" placeholder="např. 30" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender"><i class="fas fa-venus-mars"></i> Pohlaví:</label>
+                            <select id="gender" required>
+                                <option value="male">Muž</option>
+                                <option value="female">Žena</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                           <label for="heightCalc"><i class="fas fa-ruler-vertical"></i> Výška (cm):</label>
+                           <input type="number" id="heightCalc" placeholder="např. 1,75" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="weightCalc"><i class="fas fa-weight-hanging"></i> Váha (kg):</label>
+                            <input type="number" id="weightCalc" step="0.1" placeholder="např. 70" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="activityLevel"><i class="fas fa-walking"></i> Úroveň aktivity:</label>
+                            <select id="activityLevel" required>
+                                <option value="sedentary">Sedavé (minimální nebo žádný pohyb)</option>
+                                <option value="light">Lehce aktivní (lehké cvičení/sport 1-3 dny/týden)</option>
+                                <option value="moderate">Středně aktivní (střední cvičení/sport 3-5 dní/týden)</option>
+                                <option value="active">Velmi aktivní (intenzivní cvičení/sport 6-7 dní/týden)</option>
+                                <option value="very_active">Extrémně aktivní (velmi intenzivní cvičení/sport a fyzická práce)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal"><i class="fas fa-bullseye"></i> Váš cíl:</label>
+                            <select id="goal" required>
+                                <option value="lose">Zhubnout</option>
+                                <option value="maintain">Udržet váhu</option>
+                                <option value="gain">Nabrat svaly</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="workoutPreference"><i class="fas fa-heartbeat"></i> Preference tréninku:</label>
+                            <select id="workoutPreference" required>
+                                <option value="cardio">Primárně Kardio</option>
+                                <option value="strength">Primárně Silový trénink</option>
+                                <option value="both">Kombinace Kardia a Síly</option>
+                            </select>
+                        </div>
+                        <button id="calculateTrainingBtn" class="btn btn-secondary"><i class="fas fa-play"></i> Vypočítat</button>
+                        <p id="training-error-message" class="error-text"></p>
+                    </div>
+
+                    <div id="trainingResults" class="results-section" style="display: none;">
+                        <h3><i class="fas fa-poll"></i> Vaše doporučení:</h3>
+                        <div id="calorieRecommendation">
+                            <h4><i class="fas fa-fire"></i> Odhadovaný denní kalorický příjem:</h4>
+                            <p><strong id="tdeeValue"></strong> kcal</p>
+                        </div>
+                        <div id="workoutPlanRecommendation">
+                            <h4><i class="fas fa-dumbbell"></i> Doporučený tréninkový směr:</h4>
+                            <p id="workoutRecommendationText"></p>
+                        </div>
+                        <p class="disclaimer small-text">
+                             <strong>Upozornění:</strong> Toto je pouze orientační odhad a obecné doporučení. Kalorický příjem a tréninkový plán by měl být přizpůsoben individuálně. Pro přesný plán konzultujte odborníka (lékaře, trenéra, nutričního specialistu).
+                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+         <div class="container text-center">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> FitLife. Všechna práva vyhrazena.</p>
+            <p class="small-text">Obsah této stránky je pouze informativní a nenahrazuje odborné lékařské, nutriční ani trenérské poradenství.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

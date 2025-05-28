@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipy na Jídelníčky - FitLife</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+         <div class="container header-container">
+            <a href="index.html" class="logo"> <i class="fas fa-heartbeat"></i> FitLife</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Domů</a></li>
+                    <li><a href="bmi.html"><i class="fas fa-calculator"></i> BMI</a></li>
+                    <li><a href="kalkulacka-trenink.html"><i class="fas fa-cogs"></i> Nastav si svůj trénink</a></li>
+                    <li><a href="jidelnicky.html"><i class="fas fa-utensils"></i> Jídelníčky</a></li>
+                    <li><a href="treninky.html"><i class="fas fa-dumbbell"></i> Tréninky</a></li>
+                </ul>
+            </nav>
+             <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="meal-plans-overview" class="content-section page-section bg-light">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-utensils"></i> Tipy na Jídelníčky</h2>
+                <p class="section-intro">Správná strava je klíčem k dosažení vašich cílů. Zde jsou obecné principy a odkazy na příklady pro různé cíle.</p>
+                <div class="plans-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><i class="fas fa-weight-scale"></i> Redukce Hmotnosti</h3>
+                            <p>Zaměřte se na mírný kalorický deficit, dostatek bílkovin a vlákniny...</p>
+                            <a href="jidelnicek-redukce.html" class="btn btn-outline">Příklad jídelníčku <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                     <div class="card">
+                         <div class="card-content">
+                            <h3><i class="fas fa-muscle"></i> Nabírání Svalové Hmoty</h3>
+                            <p>Potřebujete mírný kalorický přebytek s důrazem na bílkoviny...</p>
+                             <a href="jidelnicek-nabirani.html" class="btn btn-outline">Příklad jídelníčku <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                     <div class="card">
+                         <div class="card-content">
+                            <h3><i class="fas fa-balance-scale"></i> Udržení Kondice</h3>
+                            <p>Vyvážená strava pokrývající vaši energetickou potřebu...</p>
+                             <a href="jidelnicek-udrzeni.html" class="btn btn-outline">Příklad jídelníčku <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                 <p class="disclaimer"><strong>Důležité:</strong> Toto jsou jen obecné rady a příklady. Konzultujte jídelníček s nutričním specialistou pro individuální potřeby.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> FitLife. Všechna práva vyhrazena.</p>
+            <p class="small-text">Obsah této stránky je pouze informativní a nenahrazuje odborné lékařské, nutriční ani trenérské poradenství.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

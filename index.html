@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife - Vaše cesta ke zdraví</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo"> <i class="fas fa-heartbeat"></i> FitLife</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> Domů</a></li>
+                    <li><a href="bmi.html"><i class="fas fa-calculator"></i> BMI</a></li>
+                    <li><a href="kalkulacka-trenink.html"><i class="fas fa-cogs"></i> Nastav si svůj trénink</a></li>
+                    <li><a href="jidelnicky.html"><i class="fas fa-utensils"></i> Jídelníčky</a></li>
+                    <li><a href="treninky.html"><i class="fas fa-dumbbell"></i> Tréninky</a></li>
+                </ul>
+            </nav>
+             <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container text-center">
+                <h1>Vítejte ve FitLife!</h1>
+                <p class="subtitle">Vaše cesta ke zdravějšímu a aktivnějšímu životu začíná zde. Prozkoumejte naše nástroje a tipy.</p>
+                <a href="bmi.html" class="btn btn-primary">Spočítejte si BMI</a>
+            </div>
+        </section>
+
+        <section class="content-section features-overview">
+            <div class="container">
+                 <h2 class="section-title"><i class="fas fa-star"></i> Co zde najdete?</h2>
+                 <div class="plans-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><i class="fas fa-calculator"></i> BMI Kalkulačka</h3>
+                            <p>Zjistěte svůj Body Mass Index a získejte základní doporučení.</p>
+                            <a href="bmi.html" class="btn btn-outline">Přejít na BMI kalkulačku <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><i class="fas fa-cogs"></i> Nastav si svůj trénink</h3>
+                            <p>Naplánujte si trénink a odhadněte kalorický příjem pro své cíle.</p>
+                            <a href="kalkulacka-trenink.html" class="btn btn-outline">Nastavit nyní <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><i class="fas fa-utensils"></i> Tipy na Jídelníčky</h3>
+                            <p>Prohlédněte si ukázkové jídelníčky pro různé cíle.</p>
+                             <a href="jidelnicky.html" class="btn btn-outline">Zobrazit jídelníčky <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                     <div class="card" id="home-training-tips-card"> <div class="card-content">
+                            <h3><i class="fas fa-dumbbell"></i> Tipy na Tréninky</h3>
+                            <p>Najděte inspiraci v ukázkových tréninkových plánech.</p>
+                             <a href="treninky.html" class="btn btn-outline">Zobrazit tréninky <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center"> 
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> FitLife. Všechna práva vyhrazena.</p>
+            <p class="small-text">Obsah této stránky je pouze informativní a nenahrazuje odborné lékařské, nutriční ani trenérské poradenství.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

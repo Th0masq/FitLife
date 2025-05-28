@@ -1,0 +1,670 @@
+/* Základní nastavení a proměnné */
+:root {
+    --primary-color: #007bff; 
+    --secondary-color: #6c757d; 
+    --success-color: #28a745; 
+    --light-bg: #f8f9fa; 
+    --dark-text: #343a40; 
+    --light-text: #f8f9fa; 
+    --border-color: #dee2e6;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-family: 'Poppins', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; 
+    font-size: 16px; 
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.7;
+    color: var(--dark-text);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+main {
+    flex-grow: 1; 
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.site-header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; 
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 400;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem; 
+}
+
+.main-nav a:hover,
+.main-nav a:focus {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--dark-text);
+    cursor: pointer;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 86, 179, 0.8));
+    color: var(--light-text);
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-section .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px); 
+}
+
+.btn-primary {
+    background-color: var(--light-text);
+    color: var(--primary-color);
+    border: 2px solid transparent;
+}
+.btn-primary:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-secondary {
+    background-color: var(--primary-color);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid transparent;
+}
+.btn-secondary:hover {
+    background-color: #0056b3;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-back {
+    background-color: var(--secondary-color);
+    color: #fff;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+
+.content-section {
+    padding: 4rem 0;
+}
+.page-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+
+.bg-light {
+    background-color: var(--light-bg);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+.detail-section .section-title {
+    text-align: left;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    margin-bottom: 3rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.detail-section .section-intro {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: none;
+    margin-bottom: 2rem;
+}
+
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card-content p {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center; 
+    gap: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+#home-training-tips-card .card-content {
+    text-align: center; 
+}
+#home-training-tips-card .card-content h3 {
+    justify-content: center; 
+}
+#home-training-tips-card .card-content .btn-outline {
+    margin-left: auto; 
+    margin-right: auto;
+    display: table; 
+}
+
+
+.bmi-calculator-wrapper {
+   max-width: 700px;
+   margin: 2rem auto;
+   padding: 2rem;
+}
+
+.training-calculator-wrapper {
+   max-width: 800px;
+   margin: 2rem auto;
+   padding: 2rem;
+}
+
+
+.input-section {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.bmi-calculator-wrapper .input-section {
+    grid-template-columns: 1fr;
+}
+
+.training-calculator-wrapper .input-section {
+    grid-template-columns: 1fr;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-group input[type="number"],
+.form-group select {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+.form-group select {
+    background-color: #fff;
+}
+
+
+.bmi-calculator-wrapper .btn,
+.training-calculator-wrapper .btn {
+    justify-self: center;
+    width: fit-content;
+}
+
+
+.results-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--light-bg);
+}
+.results-section h3, .results-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+     display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.results-section h4 {
+    font-size: 1.1rem;
+    color: var(--dark-text);
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+}
+#bmiValue {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+#bmiCategory {
+    font-style: italic;
+    font-weight: 600;
+}
+
+#tdeeValue {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--success-color);
+}
+#workoutRecommendationText {
+    white-space: pre-line;
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    line-height: 1.6;
+}
+
+
+.error-text {
+    color: #dc3545;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    min-height: 1.5em;
+}
+
+.disclaimer {
+    margin-top: 1.5rem;
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+.small-text {
+     font-size: 0.85em;
+}
+
+.meal-day-structure, .training-structure {
+    background-color: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-top: 2rem;
+}
+.meal-day-structure h4, .training-structure h4 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.meal-day-structure ul, .training-structure ul {
+    list-style: none;
+    padding-left: 0;
+}
+.meal-day-structure ul li, .training-structure ul li {
+    margin-bottom: 1rem;
+    padding-left: 1.8em;
+    position: relative;
+}
+.meal-day-structure ul li strong,
+.training-structure ul li strong {
+    color: var(--dark-text);
+}
+.meal-day-structure ul li em,
+.training-structure ul li em {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    display: block;
+    margin-top: 0.3rem;
+}
+
+.training-structure ul ul {
+    margin-top: 0.5rem;
+    padding-left: 1em;
+}
+.training-structure ul ul li {
+    font-size: 0.95em;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5em;
+}
+.training-structure ul ul li::before {
+    content: '\2023';
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+}
+
+.meal-day-structure > ul > li::before,
+.training-structure > ul > li::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    font-size: 1em;
+}
+.meal-day-structure > ul > li::before { content: '\f0da'; }
+.training-structure > ul > li::before { content: '\f14a'; }
+
+
+.site-footer {
+    background-color: var(--dark-text);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 3rem 0;
+    margin-top: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.site-footer p {
+    margin-bottom: 0.5rem;
+}
+.site-footer .small-text {
+     font-size: 0.8em;
+     max-width: 600px; 
+     margin-left: auto; 
+     margin-right: auto;
+}
+.site-footer .time-location {
+    font-size: 0.75em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 1rem;
+}
+
+
+.social-links {
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    margin: 0 0.7rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fff;
+}
+
+
+/* Responzivita */
+@media (max-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+     .plans-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .detail-section .section-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+    .header-container {
+        position: relative;
+    }
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--border-color);
+    }
+    .main-nav.active {
+        display: block;
+    }
+    .main-nav ul {
+        flex-direction: column;
+        padding: 1rem 0;
+        gap: 0;
+    }
+    .main-nav li {
+       text-align: center;
+    }
+    .main-nav a {
+       display: block;
+       padding: 0.8rem 1.5rem;
+       border-bottom: 1px solid var(--light-bg);
+    }
+     .main-nav li:last-child a {
+        border-bottom: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .hero-section .subtitle {
+        font-size: 1.1rem;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+    .detail-section .section-title {
+        font-size: 1.8rem;
+        text-align: center;
+        justify-content: center;
+    }
+    .detail-section .section-intro {
+        text-align: center;
+    }
+
+    .content-section {
+        padding: 3rem 0;
+    }
+     .plans-grid {
+        grid-template-columns: 1fr;
+    }
+     .training-calculator-wrapper .input-section {
+        grid-template-columns: 1fr;
+    }
+    .training-calculator-wrapper .input-section .btn,
+    .training-calculator-wrapper .input-section .error-text {
+        grid-column: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .training-calculator-wrapper .input-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .training-calculator-wrapper .input-section > .btn {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+    .training-calculator-wrapper .input-section > .error-text {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 576px) {
+     html {
+        font-size: 14px;
+    }
+    .hero-section {
+        padding: 4rem 0;
+    }
+     .hero-section h1 {
+        font-size: 2rem;
+    }
+     .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .card-content {
+        padding: 1.2rem;
+    }
+    .card h3 {
+        font-size: 1.2rem;
+    }
+
+    .bmi-calculator-wrapper,
+    .training-calculator-wrapper {
+        padding: 1.5rem;
+    }
+    .meal-day-structure, .training-structure {
+        padding: 1rem 1.5rem;
+    }
+}
