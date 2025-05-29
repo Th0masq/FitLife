@@ -1,7 +1,6 @@
 // FILENAME: script.js
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Přepínání mobilního menu (Potřebné na všech stránkách) ---
     const menuToggle = document.querySelector('.menu-toggle');
     const mainNav = document.querySelector('.main-nav');
 
@@ -10,25 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
             mainNav.classList.toggle('active');
             const isActive = mainNav.classList.contains('active');
             menuToggle.setAttribute('aria-expanded', isActive);
-            // Změna ikony hamburger/křížek
             const icon = menuToggle.querySelector('i');
             if (isActive) {
                 icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times'); // Ikona křížku
+                icon.classList.add('fa-times'); 
             } else {
                 icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars'); // Ikona hamburgeru
+                icon.classList.add('fa-bars');
             }
         });
     }
 
-    // --- Aktuální rok v patičce (Potřebné na všech stránkách) ---
     const currentYearSpan = document.getElementById('currentYear');
     if (currentYearSpan) {
         const now = new Date();
         currentYearSpan.textContent = now.getFullYear();
 
-        // Vložení aktuálního času a lokace, pokud ještě není
         if (currentYearSpan.parentNode && !currentYearSpan.parentNode.querySelector('.time-location')) {
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
             const formattedDate = now.toLocaleDateString('cs-CZ', options);
@@ -38,23 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
             timeLocationP.classList.add('small-text', 'time-location');
             timeLocationP.textContent = `Aktuální čas (${location}): ${formattedDate}`;
 
-            const disclaimerP = currentYearSpan.parentNode.querySelector('p.small-text'); // Najde první existující .small-text (což je disclaimer)
+            const disclaimerP = currentYearSpan.parentNode.querySelector('p.small-text');
             if (disclaimerP) {
-                // Vložit před disclaimer, pokud existuje
                 currentYearSpan.parentNode.insertBefore(timeLocationP, disclaimerP);
             } else {
-                // Jinak vložit za copyright (za <span id="currentYear"></span> a jeho textový uzel)
                  currentYearSpan.parentNode.insertBefore(timeLocationP, currentYearSpan.nextSibling.nextSibling);
             }
         }
     }
 
 
-    // --- BMI Kalkulačka (Spustí se POUZE pokud jsou elementy na stránce - tj. na bmi.html) ---
     const calculateBtn = document.getElementById('calculateBtn');
     if (calculateBtn) {
 
-        const heightInput = document.getElementById('height'); // Očekává metry, např. 1.75
+        const heightInput = document.getElementById('height');
         const weightInput = document.getElementById('weight');
         const resultsDiv = document.getElementById('results');
         const bmiValueSpan = document.getElementById('bmiValue');
@@ -65,15 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateBtn.addEventListener('click', () => {
             resultsDiv.style.display = 'none';
             errorMessageP.textContent = '';
-
-            // Zpracování výšky s desetinnou čárkou nebo tečkou
+            
             const heightStr = heightInput.value.replace(',', '.');
             const height = parseFloat(heightStr);
 
             const weightStr = weightInput.value.replace(',', '.');
             const weight = parseFloat(weightStr);
 
-            if (isNaN(height) || height <= 0 || height > 3) { // Validace pro metry
+            if (isNaN(height) || height <= 0 || height > 3) { 
                 errorMessageP.textContent = 'Zadejte platnou výšku v metrech (např. 1,75).';
                 heightInput.focus();
                 return;
@@ -95,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         function calculateBMI(weight, height) {
-            return weight / (height * height); // Výška v metrech
+            return weight / (height * height);
         }
 
         function getBMICategory(bmi) {
@@ -122,12 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // --- Kalkulačka Tréninku a Kalorií (Spustí se POUZE pokud jsou elementy na stránce - tj. na kalkulacka-trenink.html) ---
     const calculateTrainingBtn = document.getElementById('calculateTrainingBtn');
     if (calculateTrainingBtn) {
         const ageInput = document.getElementById('age');
         const genderSelect = document.getElementById('gender');
-        const heightCalcInput = document.getElementById('heightCalc'); // Zde může být zadáno v m (1,75) nebo cm (175)
+        const heightCalcInput = document.getElementById('heightCalc');
         const weightCalcInput = document.getElementById('weightCalc');
         const activityLevelSelect = document.getElementById('activityLevel');
         const goalSelect = document.getElementById('goal');
@@ -144,15 +135,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const age = parseInt(ageInput.value);
             const gender = genderSelect.value;
 
-            // Zpracování vstupu výšky (heightCalcInput)
-            let heightInputStr = heightCalcInput.value.replace(',', '.'); // Nahradí čárku za tečku
-            let heightForCalc = parseFloat(heightInputStr); // Zparsuje jako číslo
+            let heightInputStr = heightCalcInput.value.replace(',', '.'); 
+            let heightForCalc = parseFloat(heightInputStr); 
 
-            // Převod na centimetry pro BMR vzorec, pokud byl vstup v metrech
-            if (heightForCalc > 0 && heightForCalc < 10) { // Předpoklad: uživatel zadal metry (např. 1.75)
-                heightForCalc = heightForCalc * 100; // Převod na cm
+            if (heightForCalc > 0 && heightForCalc < 10) { 
+                heightForCalc = heightForCalc * 100; 
             }
-            // Pokud uživatel zadal např. "175", heightForCalc zůstane 175 (cm)
 
             const weightStr = weightCalcInput.value.replace(',', '.');
             const weight = parseFloat(weightStr);
@@ -168,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
             }
             
-            // Validace výšky v CM (po případném převodu z metrů)
             if (isNaN(heightForCalc) || heightForCalc <= 50 || heightForCalc > 300) { 
                 trainingErrorMessageP.textContent += 'Zadejte platnou výšku v cm (50-300) nebo v metrech (0.50-3.00), např. 175 nebo 1,75. ';
                 if(isValid) heightCalcInput.focus();
@@ -185,9 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let bmr;
             if (gender === 'male') {
-                bmr = (10 * weight) + (6.25 * heightForCalc) - (5 * age) + 5; // heightForCalc je zde již v cm
-            } else { // female
-                bmr = (10 * weight) + (6.25 * heightForCalc) - (5 * age) - 161; // heightForCalc je zde již v cm
+                bmr = (10 * weight) + (6.25 * heightForCalc) - (5 * age) + 5; 
+            } else { 
+                bmr = (10 * weight) + (6.25 * heightForCalc) - (5 * age) - 161; 
             }
 
             let activityMultiplier;
